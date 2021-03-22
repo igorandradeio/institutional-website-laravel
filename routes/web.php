@@ -24,4 +24,4 @@ Route::namespace("App\Http\Controllers\Website")->group(function () {
     Route::post("contact","ContactController@form");
 
 });
-
+/* END FRONT END */
