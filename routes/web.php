@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 /* FRONT END */
+// Home
+
 Route::namespace("App\Http\Controllers\Website")->group(function () {
     Route::get("/", "HomeController");
     Route::get("products", "CategoryController@index");
@@ -24,4 +26,3 @@ Route::namespace("App\Http\Controllers\Website")->group(function () {
     Route::post("contact","ContactController@form");
 
 });
-/* END FRONT END */
