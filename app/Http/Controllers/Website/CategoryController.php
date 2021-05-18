@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\User;
 
 class CategoryController extends Controller
 {
@@ -14,19 +16,21 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('website.category.index');
+        return view('website.category.index', [
+            'categories' => Category::all(),
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  $slug
+     * @param  $category
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show(Category $category)
     {
-        return view('website.category.show', ['slug' => $slug]);
-        
+        return view('website.category.show', ['category' => $category->load('products')]);
+
     }
 
 }
