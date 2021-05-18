@@ -17,11 +17,19 @@ use Illuminate\Support\Facades\Route;
 // Home
 
 Route::namespace("App\Http\Controllers\Website")->group(function () {
+    
     Route::get("/", "HomeController")->name("website.home");
-    Route::get("products", "CategoryController@index")->name("website.products");
-    Route::get("products/{slug}", "CategoryController@show")->name("website.products.category");
-    Route::get("blog", "BlogController")->name("website.blog");
     Route::view("about", "website.about.index")->name("website.about");
+
+    Route::get("categories", "CategoryController@index")->name("website.categories");
+    Route::get("categories/{category}", "CategoryController@show")->name("website.category.show");
+    
+    Route::get("product", "ProductController@index")->name("website.product");
+    Route::get("product/{product}", "ProductController@show")->name("website.product.show");
+
+    Route::get("blog", "BlogController")->name("website.blog");
+    Route::get("blog/{post}", "PostController@show")->name("website.blog.show");
+
     Route::get("contact","ContactController@index")->name("website.contact");
     Route::post("contact","ContactController@form")->name("website.contact.form");
 
