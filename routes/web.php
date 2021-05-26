@@ -22,7 +22,7 @@ Route::namespace("App\Http\Controllers\Website")->group(function () {
     Route::view("about", "website.about.index")->name("website.about");
 
     Route::get("categories", "CategoryController@index")->name("website.categories");
-    Route::get("categories/{category}", "CategoryController@show")->name("website.category.show");
+    Route::get("categories/{slug}", "CategoryController@show")->name("website.category.show");
     
     Route::get("product", "ProductController@index")->name("website.product");
     Route::get("product/{product}", "ProductController@show")->name("website.product.show");
