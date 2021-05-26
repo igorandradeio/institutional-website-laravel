@@ -21,16 +21,10 @@ class CategoryController extends Controller
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Category $category)
+    public function show($slug)
     {
+        $category = Category::whereSlug($slug)->first();
         return view('website.category.show', ['category' => $category->load('products')]);
-
     }
 
 }
