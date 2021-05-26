@@ -19,7 +19,7 @@
             @foreach($categories as $category)
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                    <a href="{{route('website.category.show', ['category' => $category])}}" >
+                    <a href="{{route('website.category.show', ['slug' => $category->slug])}}" >
                         <img class="card-img-top" src="{{asset( $category->image )}}" class="card-img-top" alt="...">
                         <div class="card-header py-3 text-white bg-primary border-primary">
                             <h4 class="my-0 fw-normal">{{ $category->name }}</h4>
