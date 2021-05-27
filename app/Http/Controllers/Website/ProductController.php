@@ -25,9 +25,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $product = DB::table('products')->where('id', $id)->first();
+  
+        $product = Product::whereSlug($slug)->first();
         $category = DB::table('categories')->where('id', $product->category_id)->first();
 
         return view('website.category.product', [
