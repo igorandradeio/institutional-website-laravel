@@ -19,7 +19,7 @@
             @foreach($category->products as $product)
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                    <a href="{{route('website.product.show', ['product' => $product])}}" >
+                    <a href="{{route('website.product.show', ['slug' => $product->slug])}}" >
                         <div class="card-header py-3 text-white bg-primary border-primary">
                             <h4 class="my-0 fw-normal">{{$product->name}}</h4>
                         </div>
