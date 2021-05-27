@@ -25,10 +25,10 @@ Route::namespace("App\Http\Controllers\Website")->group(function () {
     Route::get("categories/{slug}", "CategoryController@show")->name("website.category.show");
     
     Route::get("product", "ProductController@index")->name("website.product");
-    Route::get("product/{product}", "ProductController@show")->name("website.product.show");
+    Route::get("product/{slug}", "ProductController@show")->name("website.product.show");
 
     Route::get("blog", "BlogController")->name("website.blog");
-    Route::get("blog/{post}", "PostController@show")->name("website.blog.show");
+    Route::get("blog/{slug}", "PostController@show")->name("website.blog.show");
 
     Route::get("contact","ContactController@index")->name("website.contact");
     Route::post("contact","ContactController@form")->name("website.contact.form");
