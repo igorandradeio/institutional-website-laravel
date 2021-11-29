@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -13,6 +14,18 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        Category::create([
+            'name' => 'Headset gamer',
+            'description' => 'Headset gamer',
+            'image' => '',
+            'slug' => ''
+        ]);
+
+        Category::create([
+            'name' => 'Mouse gamer',
+            'description' => 'Mouse gamer',
+            'image' => '',
+            'slug' => ''
+        ]);
     }
 }
