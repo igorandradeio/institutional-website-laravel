@@ -17,15 +17,13 @@ class CategorySeeder extends Seeder
         Category::create([
             'name' => 'Headset gamer',
             'description' => 'Headset gamer',
-            'image' => '',
-            'slug' => ''
+            'image' => 'images/categories/headset.jpg'
         ]);
 
         Category::create([
             'name' => 'Mouse gamer',
             'description' => 'Mouse gamer',
-            'image' => '',
-            'slug' => ''
+            'image' => 'images/categories/mouse.jpg'
         ]);
     }
 }
