@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
     use HasFactory, SoftDeletes;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -26,7 +27,7 @@ class Post extends Model
     protected $dates = [
         'deleted_at',
     ];
-    
+
     protected static function booted()
     {
         static::creating(function ($post) {
@@ -34,7 +35,8 @@ class Post extends Model
         });
     }
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 }
