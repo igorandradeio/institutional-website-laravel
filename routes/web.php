@@ -35,3 +35,7 @@ Route::namespace("App\Http\Controllers\Website")->group(function () {
 
 });
 /* END FRONT END */ 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
