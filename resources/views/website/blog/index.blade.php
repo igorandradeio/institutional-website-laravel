@@ -16,11 +16,12 @@
                 @foreach($posts as $post)
                 <!-- Blog Post -->
                 <div class="card mb-4">
-                    <img class="card-img-top" src="{{asset( $post->image )}}" alt="Card image cap">
+                    <img class="card-img-top" src="{{url("storage/{$post->image}")}}" alt="{{$post->title}}" style="max-width: 300px;">
                     <div class="card-body">
                         <h2 class="card-title">{{ $post->title }}</h2>
-                        <p class="card-text">{{ $post->content }}</p>
-                        <a href="{{route('website.blog.show', ['slug' => $post->slug])}}" class="btn btn-primary">Read More &rarr;</a>
+                        <p class="card-text">{!! substr($post->content , 0, 50)."..." !!}</p>
+                        <a href="{{route('website.blog.show', ['slug' => $post->slug])}}" class="btn btn-primary">Read
+                            More &rarr;</a>
                     </div>
                     <div class="card-footer text-muted">
                         Posted on {{ $post->created_at->format(' F j, Y') }} by {{ $post->user->name }}
