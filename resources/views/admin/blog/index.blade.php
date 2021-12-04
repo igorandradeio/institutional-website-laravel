@@ -31,7 +31,7 @@
                                 @forelse($posts as $post)
                                 <tr>
                                     <td>{{$post->id}}</td>
-                                    <td>{{$post->title}}</td>
+                                    <td><a href="{{route('admin.post.edit', $post->id)}}">{{$post->title}}</a></td>
                                     <td>{{$post->created_at->format('d/m/Y H:i:s')}}</td>
                                     <td>{{$post->user->name}}</td>
                                 </tr>
