@@ -39,8 +39,8 @@ Route::namespace("App\Http\Controllers\Admin")->middleware(['auth'])->group(func
     Route::post("/admin/post/create'", "PostController@store")->name('admin.post.store');
     Route::get("/admin/post/edit/{id}", "PostController@edit")->name('admin.post.edit');
     Route::put("/admin/post/update/{id}", "PostController@update")->name('admin.post.update');
-
     Route::get("/admin/post/register", "PostController@newPost")->name('admin.post.register');
+    Route::delete("/admin/post/destroy/{id}", "PostController@destroy")->name('admin.post.destroy');
 });
 
 Auth::routes();
