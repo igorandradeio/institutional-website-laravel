@@ -17,9 +17,16 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{route('admin.post.update', $post->id)}}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.post.update', $post->id) }}" method="post" enctype="multipart/form-data">
                     @method('put')
                     @include('admin.blog.partials.form')
+                </form>
+                <form action="{{ route('admin.post.destroy', $post->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
                 </form>
             </div>
             <!-- /.card -->
