@@ -71,4 +71,13 @@ class PostController extends Controller
 
         return back();
     }
+
+    public function destroy($id)
+    {
+        $post = Post::find($id);
+
+        $post->delete();
+
+        return redirect()->route('admin.post')->with('message', 'Post deleted');
+    }
 }
