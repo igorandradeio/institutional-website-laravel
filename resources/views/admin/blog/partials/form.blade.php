@@ -1,4 +1,5 @@
 @csrf
+<input name="id" type="hidden" value="{{$post->id ?? old('id')}}">
 <div class="card-body">
     <div class="form-group">
         <label>Title</label>
