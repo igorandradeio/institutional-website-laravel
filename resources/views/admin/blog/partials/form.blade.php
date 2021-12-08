@@ -2,10 +2,6 @@
 <input name="id" type="hidden" value="{{$post->id ?? old('id')}}">
 <div class="card-body">
     <div class="form-group">
-        <label>Title</label>
-        @error('title')
-        <div>{{ $message }}</div>
-        @enderror
         <input type="text" value="{{$post->title ?? old('title') }}" class="form-control" name="title" placeholder="Enter Title here">
     </div>
 </div>
