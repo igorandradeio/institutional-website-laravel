@@ -30,7 +30,7 @@
                 <img class="img-fluid rounded" src="{{ asset($post->image) }}" alt="">
                 <hr>
                 <!-- Post Content -->
-                <p class="lead">{{ $post->content }}</p>
+                <p class="lead">{!! $post->content !!}</p>
                 <hr>
             </div>
             @include('website.blog.shared.sidebar')
