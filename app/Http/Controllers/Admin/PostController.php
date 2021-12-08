@@ -88,6 +88,8 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
+        $post->update(['slug' => null]);
+
         if (Storage::exists($post->image)) {
             Storage::delete($post->image);
         }
