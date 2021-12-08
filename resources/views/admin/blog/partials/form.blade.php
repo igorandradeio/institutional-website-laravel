@@ -13,7 +13,7 @@
 <div class="card-body">
     <div class="form-group">
         <label>Featured image</label>
-        @error('title')
+        @error('image')
         <div>{{ $message }}</div>
         @enderror
         <div class="custom-file">
@@ -26,7 +26,7 @@
 <div class="card-body">
     <div class="form-group">
         <label>Text</label>
-        @error('title')
+        @error('content')
         <div>{{ $message }}</div>
         @enderror
         <textarea id="summernote" name="content">{{ $post->content ?? old('content') }}</textarea>
