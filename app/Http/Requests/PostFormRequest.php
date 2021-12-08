@@ -31,7 +31,7 @@ class PostFormRequest extends FormRequest
                 'required',
                 'min:2',
                 'max:100',
-                Rule::unique('posts')->ignore($id),
+                Rule::unique('posts')->ignore($id)->whereNull('deleted_at'),
             ],
             'image' => ['required', 'image'],
             'content' => 'required|min:2|max:50000'
