@@ -7,6 +7,7 @@ use App\Http\Requests\PostFormRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -30,14 +31,14 @@ class PostController extends Controller
             $imagePath = $request->image->storeAs('posts-images', $fileName);
         }
 
-        Post::create([
+        $post = Post::create([
             'user_id' => auth()->user()->id,
             'title' => $request->title,
             'image' => $imagePath,
             'content' => $request->content,
         ]);
 
-        return back();
+        return redirect()->route('admin.post.edit', $post->id);
     }
 
     public function edit($id)
@@ -46,7 +47,7 @@ class PostController extends Controller
         $post = Post::find($id);
 
         if (!$post) {
-            return redirect()->route('admin');
+            return redirect()->back();
         }
 
         return view('admin.blog.edit', compact("post"));
@@ -56,18 +57,29 @@ class PostController extends Controller
     {
 
         $post = Post::find($id);
+        $imagePath = $post->image;
 
-        if ($request->image->isValid()) {
+        if (!$post) {
+            return redirect()->back();
+        }
+
+        if ($request->image && $request->image->isValid()) {
+
+            if (Storage::exists($post->image)) {
+                Storage::delete($post->image);
+            }
             $fileName = Str::of($request->title)->slug('-') . '.' . $request->image->getClientOriginalExtension();;
             $imagePath = $request->image->storeAs('posts-images', $fileName);
         }
 
-        $post->update([
+        $data = [
             'user_id' => auth()->user()->id,
             'title' => $request->title,
             'image' => $imagePath,
             'content' => $request->content,
-        ]);
+        ];
+
+        $post->update($data);
 
         return back();
     }
@@ -75,6 +87,10 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+
+        if (Storage::exists($post->image)) {
+            Storage::delete($post->image);
+        }
 
         $post->delete();
 
