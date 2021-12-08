@@ -12,9 +12,6 @@
 <div class="card-body">
     <div class="form-group">
         <label>Featured image</label>
-        @error('image')
-        <div>{{ $message }}</div>
-        @enderror
         <div class="custom-file">
             <input type="file" name="image" id="image" class="custom-file-input">
             <label class="custom-file-label">Choose file</label>
@@ -25,9 +22,6 @@
 <div class="card-body">
     <div class="form-group">
         <label>Text</label>
-        @error('content')
-        <div>{{ $message }}</div>
-        @enderror
         <textarea id="summernote" name="content">{{ $post->content ?? old('content') }}</textarea>
     </div>
 </div>
