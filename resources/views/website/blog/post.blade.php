@@ -27,7 +27,7 @@
                 <p>Posted on {{ $post->created_at->format(' F j, Y') }} at {{ $post->created_at->format(' H:i A') }}</p>
                 <hr>
                 <!-- Preview Image -->
-                <img class="img-fluid rounded" src="{{ asset($post->image) }}" alt="">
+                <img class="img-fluid rounded" src="{{url("storage/{$post->image}")}}" alt="">
                 <hr>
                 <!-- Post Content -->
                 <p class="lead">{!! $post->content !!}</p>
