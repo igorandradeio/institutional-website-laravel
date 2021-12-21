@@ -33,7 +33,7 @@ Route::namespace("App\Http\Controllers\Website")->group(function () {
 });
 
 //Auth Routes
-Route::namespace("App\Http\Controllers\Admin")->middleware(['auth'])->group(function () {
+Route::namespace("App\Http\Controllers\Admin")->middleware(['auth', 'check.is.admin'])->group(function () {
     Route::get("/admin", "HomeController@index")->name('admin');
     Route::get("/admin/post", "PostController@index")->name('admin.post');
     Route::any("/admin/post/search", "PostController@search")->name('admin.post.search');
