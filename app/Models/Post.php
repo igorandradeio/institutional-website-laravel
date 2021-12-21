@@ -39,4 +39,15 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function search($filter = null)
+    {
+        $results = $this->where(function ($query) use ($filter) {
+            if ($filter) {
+                $query->where('title', 'LIKE', "%{$filter}%");
+            }
+        })->simplePaginate(30);
+
+        return $results;
+    }
 }
