@@ -14,6 +14,8 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
+        Category::factory(20)->create();
+        /*
         Category::create([
             'name' => 'Headset gamer',
             'description' => 'Headset gamer',
@@ -25,5 +27,6 @@ class CategorySeeder extends Seeder
             'description' => 'Mouse gamer',
             'image' => 'images/categories/mouse.jpg'
         ]);
+        */
     }
 }
