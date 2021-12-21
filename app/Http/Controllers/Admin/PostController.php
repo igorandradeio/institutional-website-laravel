@@ -12,6 +12,13 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
+    private $repository;
+
+    public function __construct()
+    {
+        $this->repository = new Post;
+    }
+
     public function index()
     {
         $posts = Post::simplePaginate(30);
@@ -97,5 +104,13 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()->route('admin.post')->with('message', 'Post deleted');
+    }
+
+    public function search(Request $request)
+    {
+        $filters = $request->except('_token');
+        $posts = $this->repository->search($request->filter);
+        return view('admin.blog.index', compact('posts', 'filters'));
+        //return redirect()->route('admin.post', compact('posts', 'filter'));
     }
 }
