@@ -44,4 +44,4 @@ Route::namespace("App\Http\Controllers\Admin")->middleware(['auth'])->group(func
     Route::delete("/admin/post/destroy/{id}", "PostController@destroy")->name('admin.post.destroy');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
