@@ -42,6 +42,13 @@ Route::namespace("App\Http\Controllers\Admin")->middleware(['auth', 'check.is.ad
     Route::put("/admin/post/update/{id}", "PostController@update")->name('admin.post.update');
     Route::get("/admin/post/register", "PostController@newPost")->name('admin.post.register');
     Route::delete("/admin/post/destroy/{id}", "PostController@destroy")->name('admin.post.destroy');
+    Route::get("/admin/category", "ProductCategoryController@index")->name('admin.category');
+    Route::any("/admin/category/search", "ProductCategoryController@search")->name('admin.category.search');
+    Route::get("/admin/category/edit/{id}", "ProductCategoryController@edit")->name('admin.product.category.edit');
+    Route::put("/admin/category/update/{id}", "ProductCategoryController@update")->name('admin.product.category.update');
+    Route::delete("/admin/category/destroy/{id}", "ProductCategoryController@destroy")->name('admin.product.category.destroy');
+    Route::post("/admin/category/create'", "ProductCategoryController@store")->name('admin.product.category.store');
+    Route::get("/admin/category/register", "ProductCategoryController@create")->name('admin.category.create');
 });
 
 Auth::routes(['register' => false]);

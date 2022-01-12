@@ -266,7 +266,7 @@ return [
                 ],
                 [
                     'text' => 'Category',
-                    'url'  => '#',
+                    'url'  => 'admin/category',
                 ],
             ],
         ],
