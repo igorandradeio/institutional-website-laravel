@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductCategoryFormRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -47,8 +48,9 @@ class ProductCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductCategoryFormRequest $request)
     {
+
         if ($request->image->isValid()) {
             $fileName = Str::of($request->name)->slug('-') . '.' . $request->image->getClientOriginalExtension();;
             $imagePath = $request->image->storeAs('categories-images', $fileName);
@@ -60,7 +62,7 @@ class ProductCategoryController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect()->route('admin.category.edit', $category->id);
+        return redirect()->route('admin.product.category.edit', $category->id);
     }
 
     /**
@@ -98,7 +100,7 @@ class ProductCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductCategoryFormRequest $request, $id)
     {
         $category = Category::find($id);
         $imagePath = $category->image;
@@ -120,7 +122,7 @@ class ProductCategoryController extends Controller
         $data = [
             'name' => $request->name,
             'image' => $imagePath,
-            'description' => $request->content,
+            'description' => $request->description,
         ];
 
         $category->update($data);
