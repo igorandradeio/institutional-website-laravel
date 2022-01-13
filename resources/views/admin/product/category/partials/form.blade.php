@@ -22,14 +22,13 @@
         </div>
     </div>
 </div>
-<!-- /.card-body -->
 <div class="card-body">
     <div class="form-group">
-        <label>Text</label>
+        <label>Description</label>
         @error('description')
         <div>{{ $message }}</div>
         @enderror
-        <textarea id="summernote" name="content">{{ $category->description ?? old('description') }}</textarea>
+        <input type="text" value="{{$category->description ?? old('description') }}" class="form-control" name="description" placeholder="Enter description here">
     </div>
 </div>
 <!-- /.card-body -->
