@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1>Add new post</h1>
+<h1>Add new category</h1>
 @stop
 
 @section('content')
@@ -17,8 +17,8 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{route('admin.post.store')}}" method="post" enctype="multipart/form-data">
-                    @include('admin.blog.partials.form')
+                <form action="{{route('admin.product.category.store')}}" method="post" enctype="multipart/form-data">
+                    @include('admin.product.category.partials.form')
                 </form>
             </div>
             <!-- /.card -->
