@@ -19,11 +19,11 @@
             @foreach($category->products as $product)
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                    <a href="{{route('website.product.show', ['slug' => $product->slug])}}" >
+                    <a href="{{route('website.product.show', ['slug' => $product->slug])}}">
                         <div class="card-header py-3 text-white bg-primary border-primary">
                             <h4 class="my-0 fw-normal">{{$product->name}}</h4>
                         </div>
-                        <img class="card-img-top" src="{{asset($product->image)}}" class="card-img-top" alt="...">
+                        <img class="card-img-top" src="{{url("storage/{$product->image}")}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <ul class="list-unstyled mt-3 mb-4">
                                 <li>{{$product->description}}</li>
