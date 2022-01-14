@@ -153,4 +153,12 @@ class ProductController extends Controller
 
         return redirect()->route('admin.product')->with('message', 'Product deleted');
     }
+
+    public function search(Request $request)
+    {
+        $filters = $request->except('_token');
+        $products = $this->repository->search($request->filter);
+
+        return view('admin.product.index', compact('products', 'filters'));
+    }
 }

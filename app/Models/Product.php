@@ -39,4 +39,16 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+
+    public function search($filter = null)
+    {
+        $results = $this->where(function ($query) use ($filter) {
+            if ($filter) {
+                $query->where('name', 'LIKE', "%{$filter}%");
+            }
+        })->simplePaginate(30);
+
+        return $results;
+    }
 }

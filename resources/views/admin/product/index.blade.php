@@ -42,10 +42,10 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="{{ route('admin.product.search') }}" method="post">
                             @csrf
                             <div class="input-group mb-3">
-                                <input type="text" name="filter" value="" class="form-control">
+                                <input type="text" name="filter" value="{{ $filters['filter'] ?? '' }}" class="form-control">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary" type="submit">Search</button>
                                 </div>
