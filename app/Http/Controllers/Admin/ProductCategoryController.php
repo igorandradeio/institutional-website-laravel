@@ -52,7 +52,7 @@ class ProductCategoryController extends Controller
     {
 
         if ($request->image->isValid()) {
-            $fileName = Str::of($request->name)->slug('-') . '.' . $request->image->getClientOriginalExtension();;
+            $fileName = Str::of($request->name)->slug('-') . '.' . $request->image->getClientOriginalExtension();
             $imagePath = $request->image->storeAs('categories-images', $fileName);
         }
 
