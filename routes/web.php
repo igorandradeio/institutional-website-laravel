@@ -55,7 +55,7 @@ Route::namespace("App\Http\Controllers\Admin")->middleware(['auth', 'check.is.ad
     Route::get("/admin/product/edit/{id}", "ProductController@edit")->name('admin.product.edit');
     Route::put("/admin/product/update/{id}", "ProductController@update")->name('admin.product.update');
     Route::delete("/admin/product/destroy/{id}", "ProductController@destroy")->name('admin.product.destroy');
-    Route::any("/admin/category/search", "ProductController@search")->name('admin.product.search');
+    Route::any("/admin/product/search", "ProductController@search")->name('admin.product.search');
 });
 
 Auth::routes(['register' => false]);
