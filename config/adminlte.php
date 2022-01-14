@@ -257,12 +257,8 @@ return [
             'icon'    => 'fas fa-store',
             'submenu' => [
                 [
-                    'text' => 'All Products',
-                    'url'  => '#',
-                ],
-                [
-                    'text' => 'Add New',
-                    'url'  => '#',
+                    'text' => 'Products',
+                    'url'  => 'admin/product',
                 ],
                 [
                     'text' => 'Category',
